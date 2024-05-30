@@ -1,0 +1,59 @@
+/******* Barra de navegación ************/
+header {
+  border: 1px solid rgb(5, 5, 5);
+  height: 152px;
+  background-color: #ff3b3c;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 1220px;
+  margin: 0 auto;
+  border: 1px solid rgb(5, 5, 5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search .form {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.search .form input {
+  height: 62px;
+  border-radius: 14px;
+  border: none;
+  width: 505px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.search .social ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search .social ul li {
+  padding: 0 10px;
+}
+
+/* .search .social ul li a {
+  display: flex;
+  align-items: center;
+} */

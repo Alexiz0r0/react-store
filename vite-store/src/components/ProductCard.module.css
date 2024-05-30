@@ -1,0 +1,86 @@
+/******* Tarjeta del producto ************/
+
+.product-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.product-price-block {
+  display: flex;
+  margin: 5px 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.product-card {
+  background-color: #f0f0f0;
+  border-radius: 14px;
+
+  width: 290px;
+  overflow: hidden;
+}
+
+.product-info {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #000000;
+  word-wrap: break-word;
+  display: block;
+}
+
+.product-description {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  color: #696581;
+  word-wrap: break-word;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.product-tax-policy {
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 20px;
+  color: #7e8d95;
+  word-wrap: break-word;
+  display: block;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.product-price-block .price {
+  font-size: 22px;
+  font-weight: 700;
+  flex: 1;
+}
+
+.product-price-block .discount {
+  font-size: 12px;
+  font-weight: 700;
+  color: #428f13;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin: 40px 0;
+}
+
+.product-card-link {
+  text-decoration: none;
+}
+
+.product-card-link:hover {
+  opacity: 50%;
+}

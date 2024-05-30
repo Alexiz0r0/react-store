@@ -1,0 +1,33 @@
+/******* Hero ************/
+
+.hero {
+  background-image: url('/hero_bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-container {
+  width: 1220px;
+  margin: 0 auto;
+  border: 1px solid rgb(128, 216, 57);
+}
+
+.title-container span {
+  display: block;
+  color: white;
+  font-weight: 700;
+}
+
+.title-container span:first-child {
+  font-size: 40px;
+}
+
+.title-container span:last-child {
+  font-size: 100px;
+  line-height: 80px;
+}
