@@ -11,7 +11,7 @@ const NavBar = () => {
           <div className={style.search}>
             <div className={style.logo}>
               <Link to='/'>
-                <img src='../../public/tiendamia-logo.svg' width='218' alt='Logo store' />
+                <img src='./tiendamia-logo.svg' width='218' alt='Logo store' />
               </Link>
             </div>
             <div className={style.form}>
@@ -23,17 +23,17 @@ const NavBar = () => {
               <ul>
                 <li>
                   <a>
-                    <img src='../../public/facebook.svg' alt='facebook' />
+                    <img src='./facebook.svg' alt='facebook' />
                   </a>
                 </li>
                 <li>
                   <a>
-                    <img src='../../public/instagram.svg' alt='instagram' />
+                    <img src='./instagram.svg' alt='instagram' />
                   </a>
                 </li>
                 <li>
                   <Link to='/cart'>
-                    <img src='../../public/cart.svg' alt='cart' />
+                    <img src='./cart.svg' alt='cart' />
                   </Link>
                 </li>
               </ul>
