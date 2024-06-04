@@ -7,9 +7,9 @@ interface Props {
 
 const Description: React.FC<Props> = ({ title, description }) => {
   return (
-    <div>
+    <>
       <div className={style['product-description-block']}>
-        <h1 className={style['product-title']}>{title}</h1>
+        <h2 className={style['product-title']}>{title}</h2>
         <form className={style['product-selector']}>
           <fieldset className={style['product-fieldset']}>
             <label className={style['product-label']} htmlFor='color'>
@@ -25,7 +25,7 @@ const Description: React.FC<Props> = ({ title, description }) => {
           <p>{description}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

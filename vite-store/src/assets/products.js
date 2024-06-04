@@ -37,7 +37,11 @@ const prod3 = new Product(
   "Immerse yourself in the world of music with the Sony WH-1000XM4 wireless headphones. These over-ear headphones feature industry-leading noise cancellation technology, ensuring a premium listening experience in any environment. The sleek black color adds a touch of elegance. With multiple touch controls, you can easily manage your music playback and calls. The headphones are equipped with a powerful battery that provides hours of listening on a single charge. Whether you're commuting, traveling, or simply enjoying your favorite tunes at home, the Sony WH-1000XM4 delivers unparalleled sound quality and comfort.",
   250000,
   1,
-  ['https://i.postimg.cc/pVsHPznM/sony1.jpg', 'https://i.postimg.cc/L58Fz6wW/sony1.webp', 'https://i.postimg.cc/7ht8XryZ/sony2.jpg'],
+  [
+    'https://i.postimg.cc/pVsHPznM/sony1.jpg',
+    'https://i.postimg.cc/L58Fz6wW/sony1.webp',
+    'https://i.postimg.cc/7ht8XryZ/sony2.jpg',
+  ],
   ['Black', 'Silver'],
   false
 );
@@ -47,7 +51,11 @@ const prod4 = new Product(
   "Immerse yourself in the world of music with the Sony WH-1000XM4 wireless headphones. These over-ear headphones feature industry-leading noise cancellation technology, ensuring a premium listening experience in any environment. The sleek black color adds a touch of elegance. With multiple touch controls, you can easily manage your music playback and calls. The headphones are equipped with a powerful battery that provides hours of listening on a single charge. Whether you're commuting, traveling, or simply enjoying your favorite tunes at home, the Sony WH-1000XM4 delivers unparalleled sound quality and comfort.",
   200000,
   1,
-  ['https://i.postimg.cc/L58Fz6wW/sony1.webp', 'https://i.postimg.cc/pVsHPznM/sony1.jpg', 'https://i.postimg.cc/7ht8XryZ/sony2.jpg'],
+  [
+    'https://i.postimg.cc/L58Fz6wW/sony1.webp',
+    'https://i.postimg.cc/pVsHPznM/sony1.jpg',
+    'https://i.postimg.cc/7ht8XryZ/sony2.jpg',
+  ],
   ['Black', 'Silver'],
   true
 );
@@ -76,7 +84,7 @@ const prod7 = new Product(
   'Kindle Paperwhite',
   "Experience the joy of reading with the Kindle Paperwhite. This e-reader features a 6-inch high-resolution display with built-in lighting, providing a comfortable reading experience in any lighting conditions. With WiFi connectivity, you can easily access a vast library of books and other content. The sleek design and compact size make it perfect for on-the-go reading. Whether you're a bookworm or a casual reader, the Kindle Paperwhite offers a convenient and enjoyable way to indulge in your favorite literary adventures.",
   100000,
-  2,
+  1,
   ['https://i.postimg.cc/nzqG0FKH/kindle1.jpg', 'https://i.postimg.cc/2ymFtsTn/kindle2.jpg'],
   ['Black', 'White'],
   false
@@ -86,7 +94,7 @@ const prod8 = new Product(
   'Kindle PW Mini',
   "Experience the joy of reading with the Kindle Paperwhite. This e-reader features a 5-inch high-resolution display with built-in lighting, providing a comfortable reading experience in any lighting conditions. With WiFi connectivity, you can easily access a vast library of books and other content. The sleek design and compact size make it perfect for on-the-go reading. Whether you're a bookworm or a casual reader, the Kindle Paperwhite offers a convenient and enjoyable way to indulge in your favorite literary adventures.",
   50000,
-  2,
+  1,
   ['https://i.postimg.cc/2ymFtsTn/kindle2.jpg', 'https://i.postimg.cc/nzqG0FKH/kindle1.jpg'],
   ['Black', 'White'],
   true
@@ -97,7 +105,11 @@ const prod9 = new Product(
   "Elevate your audio experience with the Bose SoundLink Revolve Bluetooth speaker. Its sleek design and black color make it a stylish addition to any space. Enjoy 360-degree sound coverage, creating an immersive listening experience. With wireless connectivity, you can easily connect your devices and play your favorite music. The built-in rechargeable battery ensures hours of playback on a single charge. Whether you're hosting a party or enjoying a quiet evening at home, the Bose SoundLink Revolve delivers rich and clear audio that enhances every moment.",
   200000,
   1,
-  ['https://i.postimg.cc/QM5P5rz3/bose1.jpg', 'https://i.postimg.cc/JnLF52wB/bose2.jpg', 'https://i.postimg.cc/wvQGfQH4/bose3.jpg'],
+  [
+    'https://i.postimg.cc/QM5P5rz3/bose1.jpg',
+    'https://i.postimg.cc/JnLF52wB/bose2.jpg',
+    'https://i.postimg.cc/wvQGfQH4/bose3.jpg',
+  ],
   ['Black', 'Silver'],
   false
 );
@@ -107,7 +119,11 @@ const prod10 = new Product(
   "Elevate your audio experience with the Bose SoundLink Revolve Bluetooth speaker. Its sleek design and black color make it a stylish addition to any space. Enjoy 360-degree sound coverage, creating an immersive listening experience. With wireless connectivity, you can easily connect your devices and play your favorite music. The built-in rechargeable battery ensures hours of playback on a single charge. Whether you're hosting a party or enjoying a quiet evening at home, the Bose SoundLink Revolve delivers rich and clear audio that enhances every moment.",
   100000,
   1,
-  ['https://i.postimg.cc/wvQGfQH4/bose3.jpg', 'https://i.postimg.cc/QM5P5rz3/bose1.jpg', 'https://i.postimg.cc/JnLF52wB/bose2.jpg'],
+  [
+    'https://i.postimg.cc/wvQGfQH4/bose3.jpg',
+    'https://i.postimg.cc/QM5P5rz3/bose1.jpg',
+    'https://i.postimg.cc/JnLF52wB/bose2.jpg',
+  ],
   ['Black', 'Silver'],
   true
 );
@@ -136,8 +152,12 @@ const prod13 = new Product(
   "MacBook Pro 15'4",
   "Unleash your productivity with the MacBook Pro 15'4. Boasting 8GB of RAM and 512GB of storage, this laptop is a powerhouse for multitasking and content creation. The silver and space gray colors add a touch of elegance to its design. The large Retina display provides a stunning visual experience for all your tasks, from graphic design to video editing. Whether you're a professional on the go or a creative individual working on intensive projects, the MacBook Pro 15'4 delivers the performance you need.",
   800000,
-  2,
-  ['https://i.postimg.cc/L5W4515D/note.jpg', 'https://i.postimg.cc/HxGQcrcp/mock1.jpg', 'https://i.postimg.cc/Y91Q1tYQ/mock2.jpg'],
+  1,
+  [
+    'https://i.postimg.cc/L5W4515D/note.jpg',
+    'https://i.postimg.cc/HxGQcrcp/mock1.jpg',
+    'https://i.postimg.cc/Y91Q1tYQ/mock2.jpg',
+  ],
   ['Silver', 'Space Gray'],
   false
 );
@@ -146,7 +166,7 @@ const prod14 = new Product(
   "MacBook Pro 17'",
   "Unleash your productivity with the MacBook Pro 15'4. Boasting 8GB of RAM and 512GB of storage, this laptop is a powerhouse for multitasking and content creation. The silver and space gray colors add a touch of elegance to its design. The large Retina display provides a stunning visual experience for all your tasks, from graphic design to video editing. Whether you're a professional on the go or a creative individual working on intensive projects, the MacBook Pro 15'4 delivers the performance you need.",
   900000,
-  2,
+  1,
   ['https://i.postimg.cc/Y91Q1tYQ/mock2.jpg', 'https://i.postimg.cc/HxGQcrcp/mock1.jpg'],
   ['Silver', 'Space Gray'],
   false
@@ -157,7 +177,11 @@ const prod15 = new Product(
   "Enhance your computing experience with the Lenovo 13'4 laptop. Featuring 8GB of RAM and 256GB of storage, this laptop offers a perfect balance of performance and portability. The sleek design, combined with the black and silver colors, adds a touch of sophistication. The 13'4 display provides crisp visuals for work or entertainment. With the latest technology and a compact form factor, the Lenovo laptop is an ideal choice for professionals and students alike.",
   75000,
   1,
-  ['https://i.postimg.cc/L5W4515D/note.jpg', 'https://i.postimg.cc/HxGQcrcp/mock1.jpg', 'https://i.postimg.cc/Y91Q1tYQ/mock2.jpg'],
+  [
+    'https://i.postimg.cc/L5W4515D/note.jpg',
+    'https://i.postimg.cc/HxGQcrcp/mock1.jpg',
+    'https://i.postimg.cc/Y91Q1tYQ/mock2.jpg',
+  ],
   ['Black', 'Silver'],
   false
 );
@@ -177,7 +201,11 @@ const prod17 = new Product(
   "Unleash the power of innovation with the Samsung Galaxy S21 smartphone. With 128GB of storage and a sleek black color, this smartphone combines style with functionality. The advanced camera system captures stunning photos and videos, whether you're exploring nature or documenting everyday moments. The vibrant display and powerful processor provide a seamless and immersive user experience. Stay connected with high-speed connectivity and enjoy all the features and apps the Galaxy S21 has to offer. Elevate your mobile experience with this cutting-edge smartphone from Samsung.",
   500000,
   1,
-  ['https://i.postimg.cc/Jn2C5W84/galaxy1.webp', 'https://i.postimg.cc/hvQWC348/galaxy2.jpg', 'https://i.postimg.cc/j55rfSGF/galaxy3.jpg'],
+  [
+    'https://i.postimg.cc/Jn2C5W84/galaxy1.webp',
+    'https://i.postimg.cc/hvQWC348/galaxy2.jpg',
+    'https://i.postimg.cc/j55rfSGF/galaxy3.jpg',
+  ],
   ['Black', 'Silver', 'White'],
   false
 );
@@ -187,7 +215,11 @@ const prod18 = new Product(
   "Unleash the power of innovation with the Samsung Galaxy S21 smartphone. With 128GB of storage and a sleek black color, this smartphone combines style with functionality. The advanced camera system captures stunning photos and videos, whether you're exploring nature or documenting everyday moments. The vibrant display and powerful processor provide a seamless and immersive user experience. Stay connected with high-speed connectivity and enjoy all the features and apps the Galaxy S21 has to offer. Elevate your mobile experience with this cutting-edge smartphone from Samsung.",
   500000,
   1,
-  ['https://i.postimg.cc/hvQWC348/galaxy2.jpg', 'https://i.postimg.cc/Jn2C5W84/galaxy1.webp', 'https://i.postimg.cc/j55rfSGF/galaxy3.jpg'],
+  [
+    'https://i.postimg.cc/hvQWC348/galaxy2.jpg',
+    'https://i.postimg.cc/Jn2C5W84/galaxy1.webp',
+    'https://i.postimg.cc/j55rfSGF/galaxy3.jpg',
+  ],
   ['Black', 'Silver', 'White'],
   false
 );
@@ -214,25 +246,25 @@ const prod20 = new Product(
 
 const products = [
   prod1,
-  prod2,
-  prod3,
-  prod4,
-  prod5,
-  prod6,
-  prod7,
-  prod8,
   prod9,
-  prod10,
-  prod11,
-  prod12,
-  prod13,
-  prod14,
-  prod15,
-  prod16,
-  prod17,
-  prod18,
-  prod19,
+  prod8,
+  prod7,
+  prod6,
+  prod5,
+  prod4,
+  prod3,
   prod20,
+  prod2,
+  prod19,
+  prod18,
+  prod17,
+  prod16,
+  prod15,
+  prod14,
+  prod13,
+  prod12,
+  prod11,
+  prod10,
 ];
 
 export default products;

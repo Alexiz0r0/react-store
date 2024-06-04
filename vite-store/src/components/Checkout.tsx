@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import style from './Checkout.module.css';
 
 import products from '../assets/products';
@@ -23,15 +23,28 @@ interface Product {
 const Checkout: React.FC<Props> = ({ price, stock, id }) => {
   const [quantity, setQuantity] = useState(stock);
   const [button, setButton] = useState(false);
-  // const units = useRef(1);
+  const units = useRef<HTMLInputElement>(null);
 
-  let productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+  useEffect(() => {
+    const productsOnCart: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    const product: Product = products.find((item) => item.id === id)!;
+    const one = productsOnCart.find((each) => each.id === product.id);
+    if (one) {
+      setQuantity(one.stock);
+      setButton(true);
+    } else {
+      setQuantity(1);
+      setButton(false);
+    }
+  }, [id]);
 
   const manageCart = () => {
+    let productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
     const product: Product = products.find((item) => item.id === id)!;
 
     const one = productsInStorage.find((each) => each.id === product.id);
     if (!one) {
+      product.stock = quantity;
       productsInStorage.push(product);
       setButton(true);
     } else {
@@ -42,7 +55,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
   };
 
   return (
-    <div>
+    <>
       <div className={style['product-checkout-block']}>
         <div className={style['checkout-container']}>
           <span className={style['checkout-total-label']}>Total:</span>
@@ -80,7 +93,8 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
                 type='number'
                 min='1'
                 defaultValue={quantity}
-                onChange={(event) => setQuantity(Number(event?.target.value))}
+                ref={units}
+                onChange={() => setQuantity(Number(units.current?.value) || 1)}
               />
               <button
                 type='button'
@@ -93,7 +107,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
