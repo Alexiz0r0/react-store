@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import style from './Checkout.module.css';
+import truck from '../assets/truck.svg';
+import plane from '../assets/plane.svg';
 
 import products from '../assets/products';
 
@@ -60,9 +62,9 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
         <div className={style['checkout-container']}>
           <span className={style['checkout-total-label']}>Total:</span>
           <h2 id='price' className={style['checkout-total-price']}>
-            {(price * quantity).toLocaleString('en-US', {
+            {(price * quantity).toLocaleString('es-AR', {
               style: 'currency',
-              currency: 'USD',
+              currency: 'ARS',
             })}
           </h2>
           <p className={style['checkout-description']}>
@@ -72,7 +74,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
           <ul className={style['checkout-policy-list']}>
             <li>
               <span className={style['policy-icon']}>
-                <img src='/truck.svg' alt='Truck' />
+                <img src={truck} alt='Truck' />
               </span>
               <span className='policy-desc'>
                 Agrega el producto al carrito para conocer los costos de envío
@@ -80,7 +82,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
             </li>
             <li>
               <span className={style['policy-icon']}>
-                <img src='/plane.svg' alt='Plane' />
+                <img src={plane} alt='Plane' />
               </span>
               <span className={style['policy-desc']}>
                 Recibí aproximadamente entre 10 y 15 días hábiles, seleccionando envío normal

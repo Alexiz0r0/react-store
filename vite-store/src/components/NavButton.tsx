@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './NavButton.module.css';
 
 const NavButton = () => {
@@ -6,7 +7,7 @@ const NavButton = () => {
       <div className={style.nav}>
         <ul>
           <li>
-            <a>Ofertas</a>
+            <Link to='/sale'>Ofertas</Link>
           </li>
           <li>
             <a>Cómo comprar</a>

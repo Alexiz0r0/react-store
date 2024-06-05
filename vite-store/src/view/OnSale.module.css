@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1220px;
+  margin: 0 auto;
+  border: 1px solid #d19755;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin: 40px 0;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.paginator-btn {
+  width: 10%;
+  background: #ff3b3c;
+  color: white;
+  font-weight: bold;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+}
+.paginator-btn:hover {
+  background: #ff5151;
+}

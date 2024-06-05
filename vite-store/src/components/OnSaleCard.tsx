@@ -1,4 +1,6 @@
-import style from './ProductCard.module.css';
+import { useEffect, useState } from 'react';
+import style from './OnSaleCard.module.css';
+
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -9,7 +11,13 @@ interface Props {
   colors: string;
 }
 
-const ProductCard: React.FC<Props> = ({ id, title, colors, price, images }) => {
+const OnSaleCard: React.FC<Props> = ({ id, title, colors, price, images }) => {
+  const [discount, setDiscount] = useState(price);
+
+  useEffect(() => {
+    setDiscount(price * 0.5);
+  }, [price]);
+
   return (
     <>
       <Link to={'/details/' + id} className={style['product-card-link']}>
@@ -19,22 +27,29 @@ const ProductCard: React.FC<Props> = ({ id, title, colors, price, images }) => {
             <span className={style['product-title']}>{title}</span>
             <span className={style['product-description']}>{colors}</span>
           </div>
+          <div className={style['product-price-block-real']}>
+            <span className={style['product-price-desc-real']}>Desde</span>
+            <span className={style['product-price-value-real']}>
+              {price.toLocaleString('es-AR', {
+                style: 'currency',
+                currency: 'ARS',
+              })}
+            </span>
+          </div>
           <div className={style['product-price-block']}>
             <span className={style['product-price-value']}>
-              {price.toLocaleString('es-AR', {
+              {discount.toLocaleString('es-AR', {
                 style: 'currency',
                 currency: 'ARS',
               })}
             </span>
             <span className={style.discount}>50% off</span>
           </div>
-          <div className={style['product-tax-policy']}>
-            Incluye impuesto País y percepción AFIP
-          </div>
+          <div className={style['product-tax-policy']}>¡Compra y paga en pesos!</div>
         </article>
       </Link>
     </>
   );
 };
 
-export default ProductCard;
+export default OnSaleCard;
