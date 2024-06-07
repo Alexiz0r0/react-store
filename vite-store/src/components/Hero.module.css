@@ -5,10 +5,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  height: 200px;
+  /* height: 200px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 }
 
 .hero-container {

@@ -1,11 +1,11 @@
 /******* Footer ************/
 
-footer {
+/* footer {
   min-height: 300px;
   background-color: #7525a7;
   color: white;
   align-content: center;
-}
+} */
 
 .container {
   display: flex;
