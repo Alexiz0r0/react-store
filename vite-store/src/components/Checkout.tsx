@@ -58,21 +58,21 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
 
   return (
     <>
-      <div className={style['product-checkout-block']}>
+      <div className='w-full p-4 my-2.5 mx-1.5 flex flex-col'>
         <div className={style['checkout-container']}>
-          <span className={style['checkout-total-label']}>Total:</span>
-          <h2 id='price' className={style['checkout-total-price']}>
+          <span className='text-base font-bold text-red-500'>Total:</span>
+          <h2 id='price' className='text-2xl font-bold text-neutral-900 my-3'>
             {(price * quantity).toLocaleString('es-AR', {
               style: 'currency',
               currency: 'ARS',
             })}
           </h2>
-          <p className={style['checkout-description']}>
+          <p className='text-base text-neutral-700'>
             Incluye impuesto PAIS y percepción AFIP. Podés recuperar AR$ 50711 haciendo la
             solicitud en AFIP.
           </p>
-          <ul className={style['checkout-policy-list']}>
-            <li>
+          <ul className='text-sm text-neutral-700'>
+            <li className='flex gap-4 items-center my-2'>
               <span className={style['policy-icon']}>
                 <img src={truck} alt='Truck' />
               </span>
@@ -80,7 +80,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
                 Agrega el producto al carrito para conocer los costos de envío
               </span>
             </li>
-            <li>
+            <li className='flex gap-4 items-center my-2'>
               <span className={style['policy-icon']}>
                 <img src={plane} alt='Plane' />
               </span>
@@ -89,23 +89,22 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
               </span>
             </li>
           </ul>
-          <div className={style['checkout-process']}>
-            <div className={style['top']}>
-              <input
-                type='number'
-                min='1'
-                defaultValue={quantity}
-                ref={units}
-                onChange={() => setQuantity(Number(units.current?.value) || 1)}
-              />
-              <button
-                type='button'
-                className={button ? style['remove-btn'] : style['cart-btn']}
-                onClick={manageCart}
-              >
-                {button ? 'Remove from cart' : 'Add to cart'}
-              </button>
-            </div>
+          <div className='grid grid-cols-2 gap-2 justify-items-center items-center'>
+            <input
+              type='number'
+              min='1'
+              defaultValue={quantity}
+              ref={units}
+              onChange={() => setQuantity(Number(units.current?.value) || 1)}
+              className='max-w-[50px] rounded-lg p-2 my-2 '
+            />
+            <button
+              type='button'
+              className={button ? style['remove-btn'] : style['cart-btn']}
+              onClick={manageCart}
+            >
+              {button ? 'Remove from cart' : 'Add to cart'}
+            </button>
           </div>
         </div>
       </div>

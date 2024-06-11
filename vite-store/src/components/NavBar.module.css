@@ -1,12 +1,12 @@
 /******* Barra de navegación ************/
-header {
+/* header {
   border: 1px solid rgb(5, 5, 5);
   height: 152px;
   background-color: #ff3b3c;
   color: white;
   display: flex;
   align-items: center;
-}
+} */
 
 .container {
   width: 1220px;
@@ -41,7 +41,7 @@ header {
   text-align: center;
 }
 
-.search .social ul {
+/* .search .social ul {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
@@ -51,7 +51,7 @@ header {
 
 .search .social ul li {
   padding: 0 10px;
-}
+} */
 
 /* .search .social ul li a {
   display: flex;

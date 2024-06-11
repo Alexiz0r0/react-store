@@ -1,12 +1,12 @@
 /* PRODUCT DETAILS */
-.details-container,
+/* .details-container,
 .sales-block {
   max-width: 1220px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   border: 1px solid rgb(99, 99, 216);
-}
+} */
 
 .columns-container {
   display: flex;

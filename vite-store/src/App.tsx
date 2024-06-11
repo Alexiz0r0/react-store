@@ -11,7 +11,7 @@ const App = () => {
     <>
       <NavBar />
 
-      <main>
+      <main className='mx-auto max-w-[1220px]'>
         {/* <Home></Home> */}
         {/* <Details></Details> */}
         {/* <Cart></Cart> */}

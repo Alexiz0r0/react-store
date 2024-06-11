@@ -3,12 +3,12 @@
 const Footer = () => {
   return (
     <>
-      <footer className='bg-violet-600 h-[300px]'>
-        <div className='h-full flex items-end mx-auto max-w-[1220px] border-2 border-stone-400'>
-          <div className='flex flex-col w-full'>
-            <div className='flex justify-between item-end my-7'>
-              <div className=''>
-                <ul className='list-none text-white'>
+      <footer className='bg-violet-600 h-auto py-10'>
+        <div className='h-full flex  items-end mx-auto max-w-[1220px]'>
+          <div className='flex flex-col w-full justify-center'>
+            <div className='flex flex-col  md:flex-row md:justify-between item-end my-7 gap-y-4 md:gap-0'>
+              <div className='flex justify-center'>
+                <ul className='list-none text-white text-center md:text-left'>
                   <li className='font-bold mb-3'>
                     <a href='#'>Ofertas</a>
                   </li>
@@ -23,8 +23,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className=''>
-                <ul className='list-none text-white'>
+              <div className='flex justify-center'>
+                <ul className='list-none text-white text-center md:text-left'>
                   <li className='font-bold mb-3'>
                     <a href='#'>Cómo comprar</a>
                   </li>
@@ -39,8 +39,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className=''>
-                <ul className='list-none text-white'>
+              <div className='flex justify-center'>
+                <ul className='list-none text-white text-center md:text-left'>
                   <li className='font-bold mb-3'>
                     <a href='#'>Costos y tarifas</a>
                   </li>
@@ -52,8 +52,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className=''>
-                <ul className='list-none text-white'>
+              <div className='flex justify-center'>
+                <ul className='list-none text-white text-center md:text-left'>
                   <li className='font-bold mb-3'>
                     <a href='#'>Mis pedidos</a>
                   </li>
@@ -65,8 +65,8 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className=''>
-                <ul className='list-none text-white'>
+              <div className='flex justify-center'>
+                <ul className='list-none text-white text-center md:text-left'>
                   <li className='font-bold mb-3'>
                     <a href='#'>Garantía</a>
                   </li>

@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <>
       <Hero firstMsg='tecnología' secondMsg='renovada'></Hero>
-      <div className='flex flex-col justify-items-center max-w-[1220px] border-2 border-stone-400'>
-        <div className='grid grid-cols-4 gap-4 my-5'>
+      <div className='flex flex-col items-center max-w-[1220px]'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-5'>
           {products.map((item) => (
             <ProductCard
               key={item.id}

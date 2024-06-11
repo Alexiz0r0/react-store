@@ -1,4 +1,4 @@
-import style from './Thumbs.module.css';
+// import style from './Thumbs.module.css';
 import { useState, useEffect } from 'react';
 
 interface Props {
@@ -11,11 +11,11 @@ const Thumbs: React.FC<Props> = ({ images }) => {
 
   return (
     <>
-      <section className={style['product-images-block']}>
-        <div className={style['product-images']}>
+      <section className='w-full p-4 my-2.5 mx-1.5 flex flex-row'>
+        <div className='basis-1/5'>
           {images.map((each) => (
             <img
-              className={style['mini-img']}
+              className='w-full h-[70px] bg-contain bg-center'
               key={each}
               src={each}
               alt="MacBook Pro 13'4"
@@ -23,7 +23,14 @@ const Thumbs: React.FC<Props> = ({ images }) => {
             />
           ))}
         </div>
-        <img className={style['big-img']} id='big-img' src={thumb} alt="MacBook Pro 13'4" />
+        <div className='basis-4/5'>
+          <img
+            className='w-full h-[290px] bg-contain bg-center'
+            id='big-img'
+            src={thumb}
+            alt="MacBook Pro 13'4"
+          />
+        </div>
       </section>
     </>
   );
