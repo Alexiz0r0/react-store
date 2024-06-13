@@ -96,7 +96,7 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
               defaultValue={quantity}
               ref={units}
               onChange={() => setQuantity(Number(units.current?.value) || 1)}
-              className='max-w-[50px] rounded-lg p-2 my-2 '
+              className='max-w-[50px] rounded-lg p-2 my-2'
             />
             <button
               type='button'

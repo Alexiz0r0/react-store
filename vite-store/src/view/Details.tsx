@@ -32,7 +32,11 @@ const Details = () => {
       <main className='flex flex-col items-center max-w-[1220px]'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
           <Thumbs images={product.images} />
-          <Description title={product.title} description={product.description} />
+          <Description
+            title={product.title}
+            description={product.description}
+            colors={product.colors}
+          />
           <Checkout price={product.price} stock={product.stock} id={product.id} />
         </div>
 
