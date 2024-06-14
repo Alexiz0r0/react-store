@@ -5,17 +5,20 @@ import Thumbs from '../components/Thumbs';
 import Description from '../components/Description';
 import Checkout from '../components/Checkout';
 import ProductCard from '../components/ProductCard';
+import { useState } from 'react';
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
-  images: string[];
-  colors: string[];
-  onSale: boolean;
-}
+import { Product } from '../interfaces/Product.interface';
+
+// interface Product {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   colors: string[];
+//   onSale: boolean;
+// }
 
 const Details = () => {
   const { id } = useParams();
@@ -23,9 +26,15 @@ const Details = () => {
 
   const onSaleItems: Product[] = products.filter((each) => each.onSale === true);
 
+  const [selectedOption, setSelectedOption] = useState<string>(product.colors[0]);
+
   if (!product) {
     return <Navigate to='notFound' />;
   }
+
+  const handleSelectChange = (option: string) => {
+    setSelectedOption(option);
+  };
 
   return (
     <>
@@ -36,8 +45,14 @@ const Details = () => {
             title={product.title}
             description={product.description}
             colors={product.colors}
+            onSelectChange={handleSelectChange}
           />
-          <Checkout price={product.price} stock={product.stock} id={product.id} />
+          <Checkout
+            price={product.price}
+            stock={product.stock}
+            id={product.id}
+            color={selectedOption}
+          />
         </div>
 
         <div className='flex flex-col items-center mt-5'>

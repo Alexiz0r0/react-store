@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react';
 // import style from './OnSaleCard.module.css';
 
 import { Link } from 'react-router-dom';
+import { OnSaleCardProps } from '../interfaces/OnSaleCard.interface';
 
-interface Props {
-  id: string;
-  title: string;
-  price: number;
-  images: string;
-  colors: string;
-}
+// interface Props {
+//   id: string;
+//   title: string;
+//   price: number;
+//   images: string;
+//   colors: string;
+// }
 
-const OnSaleCard: React.FC<Props> = ({ id, title, colors, price, images }) => {
-  const [discount, setDiscount] = useState(price);
+const OnSaleCard: React.FC<OnSaleCardProps> = ({ id, title, colors, price, images }) => {
+  const [discount, setDiscount] = useState<number>(price);
 
   useEffect(() => {
     setDiscount(price * 0.5);

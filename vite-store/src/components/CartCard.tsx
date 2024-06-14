@@ -1,27 +1,30 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Product } from '../interfaces/Product.interface';
+import { CartCardProps } from '../interfaces/CartCardProps.interface';
 
-interface Props {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  images: string;
-  stock: number;
-  colors: string;
-}
+// interface Props {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   images: string;
+//   stock: number;
+//   colors: string;
+// }
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
-  images: string[];
-  colors: string[];
-  onSale: boolean;
-}
+// interface Product {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   colors: string[];
+//   onSale: boolean;
+// }
 
-const CartCard: React.FC<Props> = ({
+const CartCard: React.FC<CartCardProps> = ({
   id,
   title,
   description,
@@ -32,16 +35,16 @@ const CartCard: React.FC<Props> = ({
 }) => {
   const [quantity, setQuantity] = useState(stock);
   const units = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const manageUnits = () => {
-    let productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    const productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
     const one = productsInStorage.find((each) => each.id === id);
     setQuantity(Number(units.current?.value));
     if (one) {
       one.stock = Number(units.current?.value);
-      productsInStorage.push();
     } else {
-      productsInStorage = productsInStorage.filter((each) => each.id !== id);
+      navigate('/home');
     }
     localStorage.setItem('cart', JSON.stringify(productsInStorage));
   };

@@ -1,27 +1,29 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartCard from '../components/CartCard';
 import CartResume from '../components/CartResume';
 import Hero from '../components/Hero';
-import { useNavigate } from 'react-router-dom';
 // import style from './Cart.module.css';
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
-  images: string[];
-  colors: string[];
-  onSale: boolean;
-}
+import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
+
+// interface ProductLocalStorage {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   color: string;
+//   onSale: boolean;
+// }
 
 const Cart = () => {
-  const [productsOnCart, setProductsOnCart] = useState<Product[]>([]);
+  const [productsOnCart, setProductsOnCart] = useState<ProductLocalStorage[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const products: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    const products: ProductLocalStorage[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
     if (products.length === 0) {
       navigate('/home');
     }
@@ -40,7 +42,7 @@ const Cart = () => {
               description={each.description}
               price={each.price}
               images={each.images[0]}
-              colors={each.colors[0]}
+              colors={each.color}
               stock={each.stock}
               key={each.id}
             />

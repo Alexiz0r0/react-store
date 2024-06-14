@@ -1,11 +1,13 @@
 import style from './Hero.module.css';
 
-interface Props {
-  firstMsg: string;
-  secondMsg: string;
-}
+import { HeroProps } from '../interfaces/HeroProps.interface';
 
-const Hero: React.FC<Props> = ({ firstMsg, secondMsg }) => {
+// interface Props {
+//   firstMsg: string;
+//   secondMsg: string;
+// }
+
+const Hero: React.FC<HeroProps> = ({ firstMsg, secondMsg }) => {
   return (
     <>
       <section id='hero' className={`${style.hero} h-[200px] flex justify-start items-center`}>

@@ -1,9 +1,11 @@
-interface Props {
-  price: number;
-  qty: number;
-}
+import { CartResumeProps } from '../interfaces/CartResumeProps.interface';
 
-const CartResume: React.FC<Props> = ({ price, qty }) => {
+// interface Props {
+//   price: number;
+//   qty: number;
+// }
+
+const CartResume: React.FC<CartResumeProps> = ({ price, qty }) => {
   return (
     <>
       <div className='basis-1/4 flex flex-col gap-4 h-[250px] bg-gray-200 p-7 rounded-xl'>

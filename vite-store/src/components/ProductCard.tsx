@@ -1,15 +1,17 @@
 // import style from './ProductCard.module.css';
 import { Link } from 'react-router-dom';
 
-interface Props {
-  id: string;
-  title: string;
-  price: number;
-  images: string;
-  colors: string;
-}
+import { OnSaleCardProps } from '../interfaces/OnSaleCard.interface';
 
-const ProductCard: React.FC<Props> = ({ id, title, colors, price, images }) => {
+// interface Props {
+//   id: string;
+//   title: string;
+//   price: number;
+//   images: string;
+//   colors: string;
+// }
+
+const ProductCard: React.FC<OnSaleCardProps> = ({ id, title, colors, price, images }) => {
   return (
     <>
       <Link to={'/details/' + id} className='hover:opacity-50'>

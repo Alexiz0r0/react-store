@@ -1,19 +1,26 @@
 // import style from './Description.module.css';
 
 import { ChangeEvent, useState } from 'react';
+import { DescriptionProps } from '../interfaces/DescriptionProps.interface';
 
-interface Props {
-  title: string;
-  description: string;
-  colors: string[];
-  onSelectChange?: (option: string) => void;
-}
+// interface Props {
+//   title: string;
+//   description: string;
+//   colors: string[];
+//   onSelectChange: (option: string) => void;
+// }
 
-const Description: React.FC<Props> = ({ title, description, colors }) => {
-  const [selectedOption, setSelectedOption] = useState('');
+const Description: React.FC<DescriptionProps> = ({
+  title,
+  description,
+  colors,
+  onSelectChange,
+}) => {
+  const [selectedOption, setSelectedOption] = useState<string>(colors[0]);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
+    onSelectChange(event.target.value);
   };
 
   return (

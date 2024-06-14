@@ -1,11 +1,13 @@
 // import style from './Thumbs.module.css';
 import { useState, useEffect } from 'react';
 
-interface Props {
-  images: string[];
-}
-const Thumbs: React.FC<Props> = ({ images }) => {
-  const [thumb, setThumb] = useState(images[0] || '/mock1.jpg');
+import { ThumbsProps } from '../interfaces/ThumbsProps.interface';
+
+// interface Props {
+//   images: string[];
+// }
+const Thumbs: React.FC<ThumbsProps> = ({ images }) => {
+  const [thumb, setThumb] = useState<string>(images[0] || '/mock1.jpg');
 
   useEffect(() => setThumb(images[0]), [images]);
 
@@ -37,8 +39,3 @@ const Thumbs: React.FC<Props> = ({ images }) => {
 };
 
 export default Thumbs;
-
-{
-  /* <img className={style['mini-img']} src={images[0]} alt="MacBook Pro 13'4" />
-<img className={style['mini-img']} src={images[1]} alt="MacBook Pro 13'4" /> */
-}

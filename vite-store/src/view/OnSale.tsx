@@ -4,16 +4,18 @@ import style from './OnSale.module.css';
 import products from '../assets/products';
 import { useState } from 'react';
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
-  images: string[];
-  colors: string[];
-  onSale: boolean;
-}
+import { Product } from '../interfaces/Product.interface';
+
+// interface Product {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   colors: string[];
+//   onSale: boolean;
+// }
 
 const OnSale = () => {
   const onSaleItems: Product[] = products.filter((each) => each.onSale === true);

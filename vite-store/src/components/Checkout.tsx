@@ -5,26 +5,42 @@ import plane from '../assets/plane.svg';
 
 import products from '../assets/products';
 
-interface Props {
-  price: number;
-  stock: number;
-  id: string;
-}
+import { CheckoutProps } from '../interfaces/CheckoutProps.interface';
+import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
+import { Product } from '../interfaces/Product.interface';
 
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
-  images: string[];
-  colors: string[];
-  onSale: boolean;
-}
+// interface Props {
+//   price: number;
+//   stock: number;
+//   id: string;
+//   color: string;
+// }
 
-const Checkout: React.FC<Props> = ({ price, stock, id }) => {
-  const [quantity, setQuantity] = useState(stock);
-  const [button, setButton] = useState(false);
+// interface Product {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   colors: string[];
+//   onSale: boolean;
+// }
+
+// interface ProductLocalStorage {
+//   id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   stock: number;
+//   images: string[];
+//   color: string;
+//   onSale: boolean;
+// }
+
+const Checkout: React.FC<CheckoutProps> = ({ price, stock, id, color }) => {
+  const [quantity, setQuantity] = useState<number>(stock);
+  const [button, setButton] = useState<boolean>(false);
   const units = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -41,13 +57,16 @@ const Checkout: React.FC<Props> = ({ price, stock, id }) => {
   }, [id]);
 
   const manageCart = () => {
-    let productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    let productsInStorage: ProductLocalStorage[] = JSON.parse(
+      localStorage.getItem('cart') ?? '[]'
+    );
     const product: Product = products.find((item) => item.id === id)!;
 
     const one = productsInStorage.find((each) => each.id === product.id);
     if (!one) {
       product.stock = quantity;
-      productsInStorage.push(product);
+      const { colors: _, ...items } = product;
+      productsInStorage.push({ color, ...items });
       setButton(true);
     } else {
       productsInStorage = productsInStorage.filter((each) => each.id !== product.id);
