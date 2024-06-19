@@ -1,13 +1,15 @@
 import { Navigate, useParams } from 'react-router-dom';
 // import style from './Details.module.css';
-import products from '../assets/products';
+// import products from '../assets/products';
 import Thumbs from '../components/Thumbs';
 import Description from '../components/Description';
 import Checkout from '../components/Checkout';
 import ProductCard from '../components/ProductCard';
-import { useState } from 'react';
 
 import { Product } from '../interfaces/Product.interface';
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 // interface Product {
 //   id: string;
@@ -22,15 +24,37 @@ import { Product } from '../interfaces/Product.interface';
 
 const Details = () => {
   const { id } = useParams();
-  const product: Product = products.find((item) => item.id === id)!;
 
-  const onSaleItems: Product[] = products.filter((each) => each.onSale === true);
+  const [product, setProduct] = useState<Product>({
+    id: '',
+    title: '',
+    description: '',
+    price: 0,
+    stock: 0,
+    images: [],
+    colors: [],
+    onSale: false,
+  });
 
   const [selectedOption, setSelectedOption] = useState<string>(product.colors[0]);
+  const [onSale, setOnSale] = useState<Product[]>([]);
 
-  if (!product) {
-    return <Navigate to='notFound' />;
-  }
+  useEffect(() => {
+    axios
+      .get('../../src/assets/products.json')
+      .then(({ data }) => {
+        const product: Product | undefined = data.find((item: Product) => item.id === id);
+        if (!product) {
+          return <Navigate to='notFound' />;
+        }
+        console.log(product);
+
+        setProduct(product);
+        const onSaleItems: Product[] = data.filter((each: Product) => each.onSale === true);
+        onSaleItems.length > 0 && setOnSale(onSaleItems);
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
 
   const handleSelectChange = (option: string) => {
     setSelectedOption(option);
@@ -58,7 +82,7 @@ const Details = () => {
         <div className='flex flex-col items-center mt-5'>
           <h2 className='text-3xl md:text-4xl font-bold'>Ofertas de la semana</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-5'>
-            {onSaleItems.map((item) => (
+            {onSale.map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}

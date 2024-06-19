@@ -1,10 +1,30 @@
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 // import style from './Home.module.css';
-import products from '../assets/products';
+// import products from '../assets/products';
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Product } from '../interfaces/Product.interface';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const Home = () => {
-  console.log(products);
+  const text = useSelector((state: RootState) => state.filter.value);
+
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    axios
+      .get('../../src/assets/products.json')
+      .then(({ data }) => {
+        const filterData = data.filter((each: Product) =>
+          each.title.toLowerCase().includes(text.toLowerCase())
+        );
+        setProducts(filterData);
+      })
+      .catch((err) => console.log(err));
+  }, [text]);
 
   return (
     <>

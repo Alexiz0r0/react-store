@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import style from './Checkout.module.css';
 import truck from '../assets/truck.svg';
 import plane from '../assets/plane.svg';
 
-import products from '../assets/products';
+// import products from '../assets/products';
+import axios from 'axios';
 
 import { CheckoutProps } from '../interfaces/CheckoutProps.interface';
 import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
@@ -43,10 +45,34 @@ const Checkout: React.FC<CheckoutProps> = ({ price, stock, id, color }) => {
   const [button, setButton] = useState<boolean>(false);
   const units = useRef<HTMLInputElement>(null);
 
+  const [product, setProduct] = useState<Product>({
+    id: '',
+    title: '',
+    description: '',
+    price: 0,
+    stock: 0,
+    images: [],
+    colors: [],
+    onSale: false,
+  });
+  const [products, setProducts] = useState<Product[]>([]);
+
   useEffect(() => {
+    axios
+      .get('../../src/assets/products.json')
+      .then(({ data }) => {
+        setProducts(data);
+        const product: Product | undefined = data.find((item: Product) => item.id === id);
+        if (!product) {
+          return <Navigate to='notFound' />;
+        }
+        setProduct(product);
+      })
+      .catch((err) => console.log(err));
+
     const productsOnCart: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
-    const product: Product = products.find((item) => item.id === id)!;
     const one = productsOnCart.find((each) => each.id === product.id);
+
     if (one) {
       setQuantity(one.stock);
       setButton(true);

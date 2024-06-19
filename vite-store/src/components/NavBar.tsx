@@ -5,10 +5,23 @@ import facebook from '../assets/facebook.svg';
 import instagram from '../assets/instagram.svg';
 import cart from '../assets/cart.svg';
 
-import style from './NavBar.module.css';
+// import style from './NavBar.module.css';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { getText } from '../store/slices/filterSlice';
 
 const NavBar = () => {
+  const text = useRef<HTMLInputElement>(null);
+
+  const dispatch = useDispatch();
+
+  const setText = () => {
+    console.log(text.current?.value);
+    const txt = text.current?.value ?? '';
+    dispatch(getText(txt));
+  };
+
   return (
     <>
       <header className='h-[152px] bg-[#ff3b3c] flex items-center justify-center'>
@@ -17,10 +30,16 @@ const NavBar = () => {
             <Link to='/'>
               <img src={tiendamia} width='218' alt='Logo store' />
             </Link>
-            <div className={style.form}>
-              {/* <form>
-                <input type='text' placeholder='Search' />
-              </form> */}
+            <div className=''>
+              <form>
+                <input
+                  className='py-3 px-4 block w-full rounded-lg shadow font-thin focus:outline-none focus:shadow-md focus:shadow-indigo-700 duration-100 shadow-indigo-100"'
+                  type='text'
+                  placeholder='Search'
+                  ref={text}
+                  onChange={setText}
+                />
+              </form>
             </div>
             <ul className='flex flex-row justify-end gap-4'>
               <li>
