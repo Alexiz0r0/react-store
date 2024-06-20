@@ -47,7 +47,6 @@ const Details = () => {
         if (!product) {
           return <Navigate to='notFound' />;
         }
-        console.log(product);
 
         setProduct(product);
         const onSaleItems: Product[] = data.filter((each: Product) => each.onSale === true);
@@ -71,12 +70,7 @@ const Details = () => {
             colors={product.colors}
             onSelectChange={handleSelectChange}
           />
-          <Checkout
-            price={product.price}
-            stock={product.stock}
-            id={product.id}
-            color={selectedOption}
-          />
+          <Checkout price={product.price} id={product.id} color={selectedOption} />
         </div>
 
         <div className='flex flex-col items-center mt-5'>

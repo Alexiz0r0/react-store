@@ -1,7 +1,10 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Product } from '../interfaces/Product.interface';
+
 import { CartCardProps } from '../interfaces/CartCardProps.interface';
+import { useDispatch } from 'react-redux';
+import { calculateTotal } from '../store/slices/totalSlice';
+import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
 
 // interface Props {
 //   id: string;
@@ -37,8 +40,12 @@ const CartCard: React.FC<CartCardProps> = ({
   const units = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   const manageUnits = () => {
-    const productsInStorage: Product[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
+    const productsInStorage: ProductLocalStorage[] = JSON.parse(
+      localStorage.getItem('cart') ?? '[]'
+    );
     const one = productsInStorage.find((each) => each.id === id);
     setQuantity(Number(units.current?.value));
     if (one) {
@@ -47,6 +54,7 @@ const CartCard: React.FC<CartCardProps> = ({
       navigate('/home');
     }
     localStorage.setItem('cart', JSON.stringify(productsInStorage));
+    dispatch(calculateTotal(productsInStorage));
   };
 
   return (

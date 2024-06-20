@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { filterSlice } from './slices/filterSlice';
+import { totalSlice } from './slices/totalSlice';
 
 export const store = configureStore({
   reducer: {
     filter: filterSlice.reducer,
+    total: totalSlice.reducer,
   },
 });
 

@@ -6,12 +6,18 @@ import instagram from '../assets/instagram.svg';
 import cart from '../assets/cart.svg';
 
 // import style from './NavBar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getText } from '../store/slices/filterSlice';
+import { RootState } from '../store/store';
 
 const NavBar = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const textSelec = useSelector((state: RootState) => state.filter.value);
+
   const text = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
@@ -32,13 +38,16 @@ const NavBar = () => {
             </Link>
             <div className=''>
               <form>
-                <input
-                  className='py-3 px-4 block w-full rounded-lg shadow font-thin focus:outline-none focus:shadow-md focus:shadow-indigo-700 duration-100 shadow-indigo-100"'
-                  type='text'
-                  placeholder='Search'
-                  ref={text}
-                  onChange={setText}
-                />
+                {pathname === '/home' && (
+                  <input
+                    className='py-3 px-4 block w-full rounded-lg shadow font-thin focus:outline-none focus:shadow-md focus:shadow-indigo-700 duration-100 shadow-indigo-100"'
+                    type='text'
+                    placeholder='Search'
+                    ref={text}
+                    onChange={setText}
+                    defaultValue={textSelec}
+                  />
+                )}
               </form>
             </div>
             <ul className='flex flex-row justify-end gap-4'>

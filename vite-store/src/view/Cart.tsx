@@ -6,6 +6,9 @@ import Hero from '../components/Hero';
 // import style from './Cart.module.css';
 
 import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { calculateTotal } from '../store/slices/totalSlice';
 
 // interface ProductLocalStorage {
 //   id: string;
@@ -22,12 +25,16 @@ const Cart = () => {
   const [productsOnCart, setProductsOnCart] = useState<ProductLocalStorage[]>([]);
   const navigate = useNavigate();
 
+  const totalSelec = useSelector((state: RootState) => state.total.total);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const products: ProductLocalStorage[] = JSON.parse(localStorage.getItem('cart') ?? '[]');
     if (products.length === 0) {
       navigate('/home');
     }
     setProductsOnCart(products);
+    dispatch(calculateTotal(products));
   }, [navigate]);
 
   return (
@@ -49,7 +56,7 @@ const Cart = () => {
           ))}
         </article>
 
-        <CartResume price={10} qty={2} />
+        <CartResume total={totalSelec} />
       </div>
     </>
   );

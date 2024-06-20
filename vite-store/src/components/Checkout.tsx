@@ -40,8 +40,8 @@ import { Product } from '../interfaces/Product.interface';
 //   onSale: boolean;
 // }
 
-const Checkout: React.FC<CheckoutProps> = ({ price, stock, id, color }) => {
-  const [quantity, setQuantity] = useState<number>(stock);
+const Checkout: React.FC<CheckoutProps> = ({ price, id, color }) => {
+  const [quantity, setQuantity] = useState<number>(1);
   const [button, setButton] = useState<boolean>(false);
   const units = useRef<HTMLInputElement>(null);
 
@@ -80,7 +80,7 @@ const Checkout: React.FC<CheckoutProps> = ({ price, stock, id, color }) => {
       setQuantity(1);
       setButton(false);
     }
-  }, [id]);
+  }, [id, product]);
 
   const manageCart = () => {
     let productsInStorage: ProductLocalStorage[] = JSON.parse(

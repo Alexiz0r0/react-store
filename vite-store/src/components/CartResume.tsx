@@ -5,7 +5,7 @@ import { CartResumeProps } from '../interfaces/CartResumeProps.interface';
 //   qty: number;
 // }
 
-const CartResume: React.FC<CartResumeProps> = ({ price, qty }) => {
+const CartResume: React.FC<CartResumeProps> = ({ total }) => {
   return (
     <>
       <div className='basis-1/4 flex flex-col gap-4 h-[250px] bg-gray-200 p-7 rounded-xl'>
@@ -14,7 +14,7 @@ const CartResume: React.FC<CartResumeProps> = ({ price, qty }) => {
           <div className='flex flex-row justify-between py-5'>
             <h3 className='text-xl font-normal'>Total</h3>
             <strong className='text-xl font-bold'>
-              {(price * qty).toLocaleString('es-AR', {
+              {total.toLocaleString('es-AR', {
                 style: 'currency',
                 currency: 'ARS',
               })}
