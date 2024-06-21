@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('../../src/assets/products.json')
+      .get('/react-store/products.json')
       .then(({ data }) => {
         const filterData = data.filter((each: Product) =>
           each.title.toLowerCase().includes(text.toLowerCase())

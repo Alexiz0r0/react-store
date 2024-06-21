@@ -62,7 +62,7 @@ const Checkout: React.FC<CheckoutProps> = ({ price, id, color }) => {
 
   useEffect(() => {
     axios
-      .get('../../src/assets/products.json')
+      .get('/react-store/products.json')
       .then(({ data }) => {
         setProducts(data);
         const product: Product | undefined = data.find((item: Product) => item.id === id);

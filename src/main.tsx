@@ -12,7 +12,7 @@ import '@sweetalert2/theme-dark/dark.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/react-store/'>
         <App />
       </BrowserRouter>
     </Provider>

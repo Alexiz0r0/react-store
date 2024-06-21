@@ -7,7 +7,7 @@ import { ThumbsProps } from '../interfaces/ThumbsProps.interface';
 //   images: string[];
 // }
 const Thumbs: React.FC<ThumbsProps> = ({ images }) => {
-  const [thumb, setThumb] = useState<string>(images[0] || '/mock1.jpg');
+  const [thumb, setThumb] = useState<string>(images[0] || '/react-store/mock1.jpg');
 
   useEffect(() => setThumb(images[0]), [images]);
 
