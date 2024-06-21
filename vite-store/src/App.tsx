@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import './App.css';
 
 import AppRouter from './router/AppRouter';
+import '@sweetalert2/theme-dark/dark.css';
 
 const App = () => {
   return (

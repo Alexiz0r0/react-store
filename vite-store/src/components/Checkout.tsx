@@ -10,6 +10,8 @@ import axios from 'axios';
 import { CheckoutProps } from '../interfaces/CheckoutProps.interface';
 import { ProductLocalStorage } from '../interfaces/ProductLocalStorage.interface';
 import { Product } from '../interfaces/Product.interface';
+import { useDispatch } from 'react-redux';
+import { getQyt } from '../store/slices/qytItemSlice';
 
 // interface Props {
 //   price: number;
@@ -56,6 +58,7 @@ const Checkout: React.FC<CheckoutProps> = ({ price, id, color }) => {
     onSale: false,
   });
   const [products, setProducts] = useState<Product[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -99,6 +102,7 @@ const Checkout: React.FC<CheckoutProps> = ({ price, id, color }) => {
       setButton(false);
     }
     localStorage.setItem('cart', JSON.stringify(productsInStorage));
+    dispatch(getQyt(productsInStorage.length));
   };
 
   return (

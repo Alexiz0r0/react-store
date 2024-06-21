@@ -35,7 +35,7 @@ const Cart = () => {
     }
     setProductsOnCart(products);
     dispatch(calculateTotal(products));
-  }, [navigate]);
+  }, [navigate, dispatch]);
 
   return (
     <>
